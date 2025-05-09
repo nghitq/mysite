@@ -1,10 +1,79 @@
----
-layout: layout.njk
-title: Trang chính
-title2: 123
----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cre8Pics - Game Art Outsourcing Studio</title>
+  <link rel="stylesheet" href="/assets/styles.css" />
+</head>
+<body>
+  <header class="hero">
+    <div class="container">
+      <h1>WHERE ART MEETS PLAY</h1>
+      <p>At Cre8Pics, we provide specialized 2D art, sound and animation services for mobile gaming and online gaming companies.</p>
+      <a href="/contact" class="btn">Get in touch</a>
+    </div>
+  </header>
 
-<h1>{{ title }}</h1>
-<p>{{ intro }}</p>
-<h2>{{ title2 }}</h2>
-<p>{{ intro }}</p>
+  <section class="services">
+    <div class="container">
+      <h2>OUR SERVICES</h2>
+      <div class="service-list">
+        <div class="service">
+          <h3>2D Art</h3>
+          <p>Handcrafted 2D and AAA-quality 3D art assets ensuring the highest standards of project management and strong internal quality control.</p>
+          <a href="/services/2d-art" class="btn">Learn More</a>
+        </div>
+        <div class="service">
+          <h3>2D Animation</h3>
+          <p>Animations using groundbreaking technologies for a wide range of game genres and settings.</p>
+          <a href="/services/2d-animation" class="btn">Learn More</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="projects">
+    <div class="container">
+      <h2>OUR PROJECTS</h2>
+      <div class="project-grid">
+        {% for project in projects %}
+        <div class="project-card">
+          <img src="{{ project.image }}" alt="{{ project.title }}" />
+          <h3>{{ project.title }}</h3>
+          <p>{{ project.description }}</p>
+        </div>
+        {% endfor %}
+      </div>
+      <a href="/projects" class="btn">Show more</a>
+    </div>
+  </section>
+
+  <section class="projects-to-buy">
+    <div class="container">
+      <h2>Projects To Buy</h2>
+      <p>Our game art studio offers an exclusive opportunity to buy a ready-to-use art project for the online gaming industry.</p>
+      <div class="project-grid">
+        {% for item in projectsToBuy %}
+        <div class="project-card">
+          <img src="{{ item.image }}" alt="{{ item.title }}" />
+          <h3>{{ item.title }}</h3>
+          <p>{{ item.description }}</p>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; {{ currentYear }} Cre8Pics. All Rights Reserved.</p>
+      <nav>
+        <a href="/about">About us</a> |
+        <a href="/contact">Contact us</a> |
+        <a href="/privacy-policy">Privacy Policy</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>
